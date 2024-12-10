@@ -4,6 +4,25 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "L1nSn0w",
   description: "L1nSn0w的成长之路",
+  base: '/',
+  lang: 'zh-CN',
+  head: [
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' }],
+    ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' }],
+    ['link', { rel: 'mask-icon', color: '#42b983', href: '/safari-pinned-tab.svg' }],
+    ['link', { rel: 'manifest', href: '/site.webmanifest' }],
+    ['link', { rel: 'android-chrome', sizes: '192x192', href: '/android-chrome-192x192.png' }],
+    ['link', { rel: 'android-chrome', sizes: '512x512', href: '/android-chrome-512x512.png' }],
+    ['meta', { name: 'msapplication-TileColor', content: '#2d89ef' }],
+    ['meta', { name: 'theme-color', content: '#ffffff' }],
+    ['meta', { name: 'description', content: 'L1nSn0w的成长之路' }],
+    ['meta', { name: 'author', content: 'L1nSn0w' }],
+    ['meta', { name: 'keywords', content: 'L1nSn0w, L1nSn0w的成长之路, L1nSn0w的博客, L1nSn0w的技术博客, L1nSn0w的个人博客, L1nSn0w的学习之路, L1nSn0w的前端之路, L1nSn0w的后端之路, L1nSn0w的数据库之路, L1nSn0w的常用工具之路' }],
+    ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
+    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
+  ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: '/logo.png',
@@ -33,11 +52,18 @@ export default defineConfig({
           { text: 'Docker', link: '/basic/docker' },
         ]
        },
+      { text: '其他',
+        items: [
+          { text: 'C++', link: '/others/cpp' },
+          { text: 'Python', link: '/others/python' },
+        ]
+       },
     ],
 
     sidebar: [
       {
         text: '前端',
+        collapsed: true,
         items: [
           { text: 'CSS', link: '/frontend/css' },
           { text: 'JavaScript', link: '/frontend/javascript' },
@@ -45,6 +71,7 @@ export default defineConfig({
       },
       {
         text: '后端',
+        collapsed: true,
         items: [
           { text: 'GoLang', link: '/backend/golang' },
           { text: 'Java', link: '/backend/java' },
@@ -52,6 +79,7 @@ export default defineConfig({
       },
       {
         text: '数据库',
+        collapsed: true,
         items: [
           { text: 'MySQL', link: '/database/mysql' },
           { text: 'Redis', link: '/database/redis' },
@@ -59,9 +87,43 @@ export default defineConfig({
       },
       {
         text: '常用工具',
+        collapsed: true,
         items: [
-          { text: 'Git', link: '/basic/git' },
-          { text: 'Docker', link: '/basic/docker' },
+          { 
+            text: 'Git',
+            collapsed: true, 
+            items: [
+              { text: 'Git常用命令', link: '/basic/git' },
+              { text: 'Git代理配置', link: '/basic/git/git-proxy' },
+            ]
+           },
+          { 
+            text: 'Docker',
+            collapsed: true, 
+            items: [
+              { text: 'Docker常用命令', link: '/basic/docker' },
+            ]
+           },
+        ]
+      },
+      {
+        text: '其他',
+        collapsed: true,
+        items: [
+          { 
+            text: 'C++',
+            collapsed: true, 
+            items: [
+              { text: 'C++', link: '/others/cpp' },
+            ]
+          },
+          { 
+            text: 'Python',
+            collapsed: true, 
+            items: [
+              { text: 'Python', link: '/others/python' },
+            ]
+          }
         ]
       }
     ],
