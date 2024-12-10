@@ -58,13 +58,19 @@ export default defineConfig({
           { text: 'Python', link: '/others/python' },
         ]
        },
+       { text: '笔记',
+         items: [
+          { text: 'CSS踩坑笔记', link: '/pitfalls/css' },
+         ]
+       }
     ],
 
     sidebar: [
       {
         text: '前端',
-        collapsed: true,
+        collapsed: false,
         items: [
+          { text: 'HTML', link: '/frontend/html' },
           { text: 'CSS', link: '/frontend/css' },
           { text: 'JavaScript',
             collapsed: true,
@@ -80,7 +86,7 @@ export default defineConfig({
       },
       {
         text: '后端',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: 'GoLang', link: '/backend/golang' },
           { text: 'Java', link: '/backend/java' },
@@ -88,7 +94,7 @@ export default defineConfig({
       },
       {
         text: '数据库',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: 'MySQL', link: '/database/mysql' },
           { text: 'Redis', link: '/database/redis' },
@@ -96,14 +102,14 @@ export default defineConfig({
       },
       {
         text: '常用工具',
-        collapsed: true,
+        collapsed: false,
         items: [
           { 
             text: 'Git',
             collapsed: true, 
             items: [
               { text: 'Git常用命令', link: '/basic/git' },
-              { text: 'Git代理配置', link: '/basic/git/git-proxy' },
+              { text: 'Git相关技巧', link: '/basic/git/git-tricks' },
             ]
            },
           { 
@@ -117,13 +123,13 @@ export default defineConfig({
       },
       {
         text: '其他',
-        collapsed: true,
+        collapsed: false,
         items: [
           { 
             text: 'C++',
             collapsed: true, 
             items: [
-              { text: 'C++', link: '/others/cpp' },
+              { text: 'C++相关', link: '/others/cpp' },
             ]
           },
           { 
@@ -131,6 +137,19 @@ export default defineConfig({
             collapsed: true, 
             items: [
               { text: 'Python', link: '/others/python' },
+            ]
+          }
+        ]
+      },
+      {
+        text: '笔记',
+        collapsed: false,
+        items: [
+          {
+            text: '踩坑笔记',
+            collapsed: true,
+            items: [
+              { text: 'CSS踩坑笔记', link: '/pitfalls/css' },
             ]
           }
         ]

@@ -1,4 +1,7 @@
+# Git相关技巧
+
 ## Git配置代理
+
 7890默认为mihomo的代理端口，根据自己实际的代理工具的端口修改
 
 1. 全局代理配置(http/https代理)
@@ -35,3 +38,10 @@ git config --get https.proxy
 git config --global --unset http.proxy
 git config --global --unset https.proxy
 ```
+
+
+
+---
+
+
+
