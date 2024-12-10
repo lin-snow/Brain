@@ -66,7 +66,16 @@ export default defineConfig({
         collapsed: true,
         items: [
           { text: 'CSS', link: '/frontend/css' },
-          { text: 'JavaScript', link: '/frontend/javascript' },
+          { text: 'JavaScript',
+            collapsed: true,
+            items: [
+              { text: 'JavaScript基础' , link: '/frontend/javascript' },
+              { text: 'JavaScript对象' , link: '/frontend/javascript/object' },
+              { text: 'JavaScript数据类型', link: '/frontend/javascript/datatype' },
+              { text: 'JavaScript高级', link: '/frontend/javascript/advance' },
+              { text: 'JavaScript文档', link: '/frontend/javascript/document' },
+            ]
+          },
         ]
       },
       {
@@ -135,6 +144,11 @@ export default defineConfig({
     search: {
       provider: 'local'
     },
+
+    footer: {
+      message: 'Released under the MIT License.',
+      copyright: 'Copyright © 2024-present L1nSn0w.'
+    }
   },
 
   // 自定义
