@@ -73,7 +73,7 @@ export default defineConfig({
               { text: 'JavaScript对象' , link: '/frontend/javascript/object' },
               { text: 'JavaScript数据类型', link: '/frontend/javascript/datatype' },
               { text: 'JavaScript高级', link: '/frontend/javascript/advance' },
-              { text: 'JavaScript其他', link: '/frontend/javascript/document' },
+              { text: 'JavaScript文档和其他', link: '/frontend/javascript/document' },
             ]
           },
         ]
