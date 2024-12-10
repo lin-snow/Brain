@@ -1,0 +1,2 @@
+# TypeScritp基础
+这里记录着一些与TypeScript相关的知识

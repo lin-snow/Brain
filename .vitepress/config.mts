@@ -30,8 +30,12 @@ export default defineConfig({
       { text: '首页', link: '/' },
       { text: '前端', 
         items: [
+          { text: 'HTML', link: '/frontend/html' },
           { text: 'CSS', link: '/frontend/css' },
           { text: 'JavaScript', link: '/frontend/javascript' },
+          { text: 'TypeScript', link: '/frontend/typescript' },
+          { text: 'Vue', link: '/frontend/vue' },
+          { text: 'React', link: '/frontend/react' },
         ]
       },
       { text: '后端', 
@@ -82,6 +86,27 @@ export default defineConfig({
               { text: 'JavaScript文档和其他', link: '/frontend/javascript/document' },
             ]
           },
+          {
+            text: 'TypeScript',
+            collapsed: true,
+            items: [
+              { text: 'TypeScript基础', link: '/frontend/typescript' },
+            ]
+          },
+          {
+            text: 'Vue',
+            collapsed: true,
+            items: [
+              { text: 'Vue基础', link: '/frontend/vue' },
+            ]
+          },
+          {
+            text: 'React',
+            collapsed: true,
+            items: [
+              { text: 'React基础', link: '/frontend/react' },
+            ]
+          }
         ]
       },
       {
