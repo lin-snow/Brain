@@ -4,12 +4,15 @@ layout: home
 
 hero:
   name: "L1nSn0w"
-  text: "L1nSn0w的成长之路."
-  tagline: 无线进步！
+  text: "L1nSn0w的第二大脑"
+  tagline: 无限进步！
+  image:
+    src: /logo.png
+    alt: L1nSn0w
   actions:
     - theme: brand
       text: 开始阅读
-      link: /markdown-examples
+      link: /frontend
     - theme: alt
       text: Blog
       link: https://linsnow.cn
