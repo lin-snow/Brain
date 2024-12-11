@@ -305,3 +305,85 @@ export function loadFoo() {
 
 ---
 
+## 命名空间
+
+当基于文件模块使用时，你无须担心这点，但是该模式仍然适用于一组函数的逻辑分组。因此 TypeScript 提供了 `namespace` 关键字来描述这种分组，如下所示。
+
+```ts
+namespace Utility {
+  export function log(msg) {
+    console.log(msg);
+  }
+  export function error(msg) {
+    console.log(msg);
+  }
+}
+
+// usage
+Utility.log('Call me');
+Utility.error('maybe');
+```
+
+
+
+---
+
+## 动态导入
+
+动态导入表达式是 ECMAScript 的一个新功能，它允许你在程序的任意位置异步加载一个模块。但是TypeScript依赖`tsconfig.json`,所以为了使TypeScript的输出保留import()语句，可以这么做：在下面的代码中，我希望懒加载 `moment` 库，同时我也希望使用代码分割的功能，这意味 `moment` 会被分割到一个单独的 JavaScript 文件，当它被使用时，会被异步加载。
+
+```ts
+import(/* webpackChunkName: "momentjs" */ 'moment')
+  .then(moment => {
+    // 懒加载的模块拥有所有的类型，并且能够按期工作
+    // 类型检查会工作，代码引用也会工作  :100:
+    const time = moment().format();
+    console.log('TypeScript >= 2.4.0 Dynamic Import Expression:');
+    console.log(time);
+  })
+  .catch(err => {
+    console.log('Failed to load moment', err);
+  });
+```
+
+这是 `tsconfig.json` 的配置文件：
+
+```js
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "esnext",
+    "lib": [
+      "dom",
+      "es5",
+      "scripthost",
+      "es2015.promise"
+    ],
+    "jsx": "react",
+    "declaration": false,
+    "sourceMap": true,
+    "outDir": "./dist/js",
+    "strict": true,
+    "moduleResolution": "node",
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "types": [
+      "node",
+      "react",
+      "react-dom"
+    ]
+  }
+}
+```
+
+::: tip
+
+重要的提示
+
+- 使用 `"module": "esnext"` 选项：TypeScript 保留 `import()` 语句，该语句用于 Webpack Code Splitting。
+- 进一步了解有关信息，推荐阅读这篇文章：[Dynamic Import Expressions and webpack 2 Code Splitting integration with TypeScript 2.4.](https://blog.josequinto.com/2017/06/29/dynamic-import-expressions-and-webpack-code-splitting-integration-with-typescript-2-4/)
+
+
+
+:::
