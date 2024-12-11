@@ -40,7 +40,11 @@ export default defineConfig({
       { text: '后端', 
         items: [
           { text: 'GoLang', link: '/backend/golang' },
-          { text: 'Java', link: '/backend/java' },
+          { text: 'Java', 
+            items: [
+              { text: 'JavaSE', link: '/backend/java' },
+            ]
+           },
         ]
        },
       { text: '数据库', 
@@ -62,9 +66,19 @@ export default defineConfig({
         ]
        },
        { text: '笔记',
-         items: [
-          { text: 'CSS踩坑笔记', link: '/pitfalls/css' },
-         ]
+        items: [
+          {
+            items: [
+              { text: '一些笔记', link: '/notes/' },
+            ]
+          },
+          { 
+            text: '踩坑笔记', 
+            items: [
+              { text: 'CSS踩坑笔记', link: '/notes/pitfalls/css' },
+            ]
+           },
+        ]
        }
     ],
 
@@ -97,6 +111,7 @@ export default defineConfig({
           text: 'TypeScript',
           collapsed: true,
           items: [
+            { text: 'TypeScript项目', link: '/frontend/typescript/tsproject' },
             { text: 'TypeScript基础', link: '/frontend/typescript' },
           ]
         },
@@ -127,7 +142,8 @@ export default defineConfig({
         { text: 'Java', 
           collapsed: true,
           items: [
-            { text: 'Java基础', link: '/backend/java' },
+            { text: 'JavaSE面向对象基础', link: '/backend/java/javaseOOP-Basic' },
+            { text: 'JavaSE面向对象进阶', link: '/backend/java/javaseOOP-Advanced' },
           ]
          },
       ],
@@ -176,12 +192,19 @@ export default defineConfig({
       ],
 
       // 笔记侧边栏配置
-      '/pitfalls/': [
+      '/notes/': [
+        { text: '笔记', 
+          collapsed: false,
+          items: [
+            { text: 'JS的Node包管理的区别', link: '/notes/npm-difference' },
+            { text: '如何理解npm产生的文件', link: '/notes/npm-files' },
+          ]
+         },
         {
           text: '踩坑笔记',
           collapsed: false,
           items: [
-            { text: 'CSS踩坑笔记', link: '/pitfalls/css' },
+            { text: 'CSS踩坑笔记', link: '/notes/pitfalls/css' },
           ]
         }
       ]
