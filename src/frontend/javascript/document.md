@@ -150,7 +150,7 @@ DOM 节点还具有其他属性，具体有哪些属性则取决于它们的类�
 
 这两种行为都会显示 `alert`，而因为代码中的 `return false`，表单不会被发送到别处：
 
-```markup
+```js
 <form onsubmit="alert('submit!');return false">
   First: Enter in the input field <input type="text" value="text"><br>
   Second: Click "submit": <input type="submit" value="Submit">

@@ -68,117 +68,124 @@ export default defineConfig({
        }
     ],
 
-    sidebar: [
-      {
-        text: '前端',
-        collapsed: false,
-        items: [
-          { text: 'HTML', link: '/frontend/html' },
-          { text: 'CSS', link: '/frontend/css' },
-          { text: 'JavaScript',
-            collapsed: true,
-            items: [
-              { text: 'JavaScript基础' , link: '/frontend/javascript' },
-              { text: 'JavaScript对象' , link: '/frontend/javascript/object' },
-              { text: 'JavaScript数据类型', link: '/frontend/javascript/datatype' },
-              { text: 'JavaScript高级', link: '/frontend/javascript/advance' },
-              { text: 'JavaScript文档和其他', link: '/frontend/javascript/document' },
-            ]
-          },
-          {
-            text: 'TypeScript',
-            collapsed: true,
-            items: [
-              { text: 'TypeScript基础', link: '/frontend/typescript' },
-            ]
-          },
-          {
-            text: 'Vue',
-            collapsed: true,
-            items: [
-              { text: 'Vue基础', link: '/frontend/vue' },
-            ]
-          },
-          {
-            text: 'React',
-            collapsed: true,
-            items: [
-              { text: 'React基础', link: '/frontend/react' },
-            ]
-          }
-        ]
-      },
-      {
-        text: '后端',
-        collapsed: false,
-        items: [
-          { text: 'GoLang', link: '/backend/golang' },
-          { text: 'Java', link: '/backend/java' },
-        ]
-      },
-      {
-        text: '数据库',
-        collapsed: false,
-        items: [
-          { text: 'MySQL', link: '/database/mysql' },
-          { text: 'Redis', link: '/database/redis' },
-        ]
-      },
-      {
-        text: '常用工具',
-        collapsed: false,
-        items: [
-          { 
-            text: 'Git',
-            collapsed: true, 
-            items: [
-              { text: 'Git常用命令', link: '/basic/git' },
-              { text: 'Git相关技巧', link: '/basic/git/git-tricks' },
-            ]
-           },
-          { 
-            text: 'Docker',
-            collapsed: true, 
-            items: [
-              { text: 'Docker常用命令', link: '/basic/docker' },
-            ]
-           },
-        ]
-      },
-      {
-        text: '其他',
-        collapsed: false,
-        items: [
-          { 
-            text: 'C++',
-            collapsed: true, 
-            items: [
-              { text: 'C++相关', link: '/others/cpp' },
-            ]
-          },
-          { 
-            text: 'Python',
-            collapsed: true, 
-            items: [
-              { text: 'Python', link: '/others/python' },
-            ]
-          }
-        ]
-      },
-      {
-        text: '笔记',
-        collapsed: false,
-        items: [
-          {
-            text: '踩坑笔记',
-            collapsed: true,
-            items: [
-              { text: 'CSS踩坑笔记', link: '/pitfalls/css' },
-            ]
-          }
-        ]
-      }
-    ],
+    sidebar: {
+      // 前端侧边栏配置
+      '/frontend/': [
+        { text: 'HTML', 
+          collapsed: true,
+          items: [
+            { text: 'HTML基础', link: '/frontend/html' },
+          ]
+         },
+        { text: 'CSS',
+          collapsed: true,
+          items: [
+            { text: 'CSS基础', link: '/frontend/css' },
+          ]
+         },
+        { text: 'JavaScript',
+          collapsed: true,
+          items: [
+            { text: 'JavaScript基础' , link: '/frontend/javascript' },
+            { text: 'JavaScript对象' , link: '/frontend/javascript/object' },
+            { text: 'JavaScript数据类型', link: '/frontend/javascript/datatype' },
+            { text: 'JavaScript高级', link: '/frontend/javascript/advance' },
+            { text: 'JavaScript文档和其他', link: '/frontend/javascript/document' },
+          ]
+        },
+        {
+          text: 'TypeScript',
+          collapsed: true,
+          items: [
+            { text: 'TypeScript基础', link: '/frontend/typescript' },
+          ]
+        },
+        {
+          text: 'Vue',
+          collapsed: true,
+          items: [
+            { text: 'Vue基础', link: '/frontend/vue' },
+          ]
+        },
+        {
+          text: 'React',
+          collapsed: true,
+          items: [
+            { text: 'React基础', link: '/frontend/react' },
+          ]
+        }
+      ],
+
+      // 后端侧边栏配置
+      '/backend/': [
+        { text: 'GoLang', 
+          collapsed: true,
+          items: [
+            { text: 'GoLang基础', link: '/backend/golang' },
+          ]
+         },
+        { text: 'Java', 
+          collapsed: true,
+          items: [
+            { text: 'Java基础', link: '/backend/java' },
+          ]
+         },
+      ],
+
+      // 数据库侧边栏配置
+      '/database/': [
+        { text: 'MySQL', link: '/database/mysql' },
+        { text: 'Redis', link: '/database/redis' },
+      ],
+
+      // 常用工具侧边栏配置
+      '/basic/': [
+        { 
+          text: 'Git',
+          collapsed: false, 
+          items: [
+            { text: 'Git常用命令', link: '/basic/git' },
+            { text: 'Git相关技巧', link: '/basic/git/git-tricks' },
+          ]
+         },
+        { 
+          text: 'Docker',
+          collapsed: false, 
+          items: [
+            { text: 'Docker常用命令', link: '/basic/docker' },
+          ]
+         },
+      ],
+
+      // 其他侧边栏配置
+      '/others/': [
+        { 
+          text: 'C++',
+          collapsed: true, 
+          items: [
+            { text: 'C++相关', link: '/others/cpp' },
+          ]
+        },
+        { 
+          text: 'Python',
+          collapsed: true, 
+          items: [
+            { text: 'Python', link: '/others/python' },
+          ]
+        }
+      ],
+
+      // 笔记侧边栏配置
+      '/pitfalls/': [
+        {
+          text: '踩坑笔记',
+          collapsed: false,
+          items: [
+            { text: 'CSS踩坑笔记', link: '/pitfalls/css' },
+          ]
+        }
+      ]
+    },
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/lin-snow/' }

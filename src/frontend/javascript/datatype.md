@@ -170,13 +170,13 @@ alert(rest.width);   // 100
 
 ### 创建
 
-```
+```js
 let now = new Date();
 ```
 
 不带参数 —— 创建一个表示当前日期和时间的 `Date` 对象：
 
-```
+```js
 new Date(datestring)
 new Date(year, month, date, hours, minutes, seconds, ms)
 
