@@ -111,8 +111,9 @@ export default defineConfig({
           text: 'TypeScript',
           collapsed: true,
           items: [
-            { text: 'TypeScript项目', link: '/frontend/typescript/tsproject' },
             { text: 'TypeScript基础', link: '/frontend/typescript' },
+            { text: 'TypeScript项目', link: '/frontend/typescript/tsproject' },
+            { text: 'TypeScript类型系统', link: '/frontend/typescript/type-system' },
           ]
         },
         {
