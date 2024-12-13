@@ -143,8 +143,7 @@ export default defineConfig({
         { text: 'Java', 
           collapsed: true,
           items: [
-            { text: 'JavaSE面向对象基础', link: '/backend/java/javaseOOP-Basic' },
-            { text: 'JavaSE面向对象进阶', link: '/backend/java/javaseOOP-Advanced' },
+            { text: 'JavaSE', link: '/backend/java' },
           ]
          },
       ],
@@ -181,6 +180,7 @@ export default defineConfig({
           collapsed: true, 
           items: [
             { text: 'C++相关', link: '/others/cpp' },
+            { text: 'C++开发环境', link: '/others/cpp/make-env' },
           ]
         },
         { 
