@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "L1nSn0w",
+  title: "L1nSn0w の 🧠",
   description: "L1nSn0w的成长之路",
   base: '/',
   head: [

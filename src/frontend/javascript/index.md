@@ -1,3 +1,9 @@
+---
+title: JavaScript基础
+next: 
+  text: JavaScript数据类型
+  link: ./datatype
+---
 # JavaScirpt基础
 
 整理了一些关于JavaScript的学习笔记，内容主要来自：[https://zh.javascript.info/](https://zh.javascript.info/)
