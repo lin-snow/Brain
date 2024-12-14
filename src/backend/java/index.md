@@ -117,3 +117,28 @@ public static void main(String[] args) {
 }
 ```
 
+ 
+
+## 泛型
+
+不能传基本数据类型，需要使用其包装类型。但是基本类型的数组可以传
+
+### 泛型方法
+
+```java
+// 示例
+public static <T> T test(T t) {
+    return t;
+}
+```
+
+### 泛型的界限
+
+```java
+class Person<T extends Number> { // 这里的泛型T被限定上界为Number,所以T必须是Number或是Number的子类
+    
+}
+```
+
+
+
