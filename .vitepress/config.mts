@@ -144,6 +144,7 @@ export default defineConfig({
           collapsed: true,
           items: [
             { text: 'JavaSE', link: '/backend/java' },
+            { text: 'Jave数据结构', link: '/backend/java/data-structure' },
           ]
          },
       ],

@@ -140,5 +140,42 @@ class Person<T extends Number> { // 这里的泛型T被限定上界为Number,所
 }
 ```
 
+### 类型擦除
 
+Java泛型编译时默认使用Object类型，如果设置了上界则使用上界定义的类型。因此如果不指定类型也可以正常编译通过，但是会有警告
+
+
+
+---
+
+## 函数式接口
+
+函数式接口都会打上`@FunctionalInterface`注解。这些接口都可以直接使用Lambda表达式。
+
+**Supplier供给型函数接口:**这个接口专门用于供给使用，其中只有一个`get`方法用于获取需要的对象
+
+```java
+@FunctionalInterface
+public interface Supplier<T> {
+    T get() / 实现这个方法即可实现供给功能
+}
+```
+
+比如实现一个专门供给box对象的supplier：
+
+```java
+public class Box {
+    public void save() {
+        System.out.println("我会装东西");
+    }
+}
+```
+
+```java
+private static final Supplier<Box> BOX_SUPPLIER = Box::new
+public static void main(String[] args) {
+    Box box = BOX_SUPPLIER.get();
+    box.save();
+}
+```
 
