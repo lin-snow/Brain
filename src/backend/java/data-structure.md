@@ -101,3 +101,24 @@ public interface Collection<E> extends Iterable<E> {
 }
 ```
 
+## 哈希表
+
+- 支持自动扩容
+- 当数据量达到一定长度时会转变成效率更高的红黑树
+
+(n -1) & hash 等价于 hash % n
+
+当遇到hash值相同时并且键相等时会覆盖相同的键值，覆盖之后会返回旧的值。
+
+如果旧的容量达到最大阈值，则使用**Integer.MAX_VALUE**
+
+哈希表容量使用达到75%时候则进行扩容
+
+
+
+比较存入的两个对象是否相同时需要重写equals和hashCode
+
+
+
+
+

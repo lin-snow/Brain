@@ -143,8 +143,10 @@ export default defineConfig({
         { text: 'Java', 
           collapsed: true,
           items: [
+            { text: 'Java开发环境', link: '/backend/java/java-env' },
             { text: 'JavaSE', link: '/backend/java' },
             { text: 'Jave数据结构', link: '/backend/java/data-structure' },
+            { text: 'JavaSE 高级', link: '/backend/java/java-advance' },
           ]
          },
       ],
