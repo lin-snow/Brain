@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "L1nSn0w"
-  text: "L1nSn0w的第二大脑"
+  text: "L1nSn0wの第二大脑"
   tagline: 无限进步！
   image:
     src: /logo.png

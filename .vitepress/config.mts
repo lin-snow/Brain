@@ -4,7 +4,7 @@ import mdItAttrs from 'markdown-it-attrs'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "L1nSn0w の 🧠",
+  title: "L1nSn0w の 第二大脑🧠",
   description: "L1nSn0w的成长之路",
   base: '/',
   head: [
@@ -45,6 +45,7 @@ export default defineConfig({
           { text: 'Java', 
             items: [
               { text: 'JavaSE', link: '/backend/java' },
+              { text: 'JavaWeb', link: '/backend/javaweb' },
             ]
            },
         ]
@@ -88,19 +89,19 @@ export default defineConfig({
       // 前端侧边栏配置
       '/frontend/': [
         { text: 'HTML', 
-          collapsed: true,
+          collapsed: false,
           items: [
             { text: 'HTML基础', link: '/frontend/html' },
           ]
          },
         { text: 'CSS',
-          collapsed: true,
+          collapsed: false,
           items: [
             { text: 'CSS基础', link: '/frontend/css' },
           ]
          },
         { text: 'JavaScript',
-          collapsed: true,
+          collapsed: false,
           items: [
             { text: 'JavaScript基础' , link: '/frontend/javascript' },
             { text: 'JavaScript对象' , link: '/frontend/javascript/object' },
@@ -111,7 +112,7 @@ export default defineConfig({
         },
         {
           text: 'TypeScript',
-          collapsed: true,
+          collapsed: false,
           items: [
             { text: 'TypeScript基础', link: '/frontend/typescript' },
             { text: 'TypeScript项目', link: '/frontend/typescript/tsproject' },
@@ -120,14 +121,14 @@ export default defineConfig({
         },
         {
           text: 'Vue',
-          collapsed: true,
+          collapsed: false,
           items: [
             { text: 'Vue基础', link: '/frontend/vue' },
           ]
         },
         {
           text: 'React',
-          collapsed: true,
+          collapsed: false,
           items: [
             { text: 'React基础', link: '/frontend/react' },
           ]
@@ -137,13 +138,13 @@ export default defineConfig({
       // 后端侧边栏配置
       '/backend/': [
         { text: 'GoLang', 
-          collapsed: true,
+          collapsed: false,
           items: [
             { text: 'GoLang基础', link: '/backend/golang' },
           ]
          },
         { text: 'Java', 
-          collapsed: true,
+          collapsed: false,
           items: [
             { text: 'Java开发环境', link: '/backend/java/java-env' },
             { text: 'JavaSE', link: '/backend/java' },
@@ -151,6 +152,13 @@ export default defineConfig({
             { text: 'JavaSE 高级', link: '/backend/java/java-advance' },
           ]
          },
+         {
+          text: 'JavaWeb',
+          collapsed: false,
+          items: [
+            { text: 'JavaWeb基础', link: '/backend/javaweb' },
+          ]
+         }
       ],
 
       // 数据库侧边栏配置
@@ -182,7 +190,7 @@ export default defineConfig({
       '/others/': [
         { 
           text: 'C++',
-          collapsed: true, 
+          collapsed: false, 
           items: [
             { text: 'C++相关', link: '/others/cpp' },
             { text: 'C++开发环境', link: '/others/cpp/make-env' },
@@ -190,7 +198,7 @@ export default defineConfig({
         },
         { 
           text: 'Python',
-          collapsed: true, 
+          collapsed: false, 
           items: [
             { text: 'Python', link: '/others/python' },
           ]
