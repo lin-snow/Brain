@@ -1,4 +1,6 @@
 import { defineConfig } from 'vitepress'
+import mdItAttrs from 'markdown-it-attrs'
+
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -232,9 +234,23 @@ export default defineConfig({
   srcDir: './src',
 
   markdown: {
-    image: {
-      // 默认禁用；设置为 true 可为所有图片启用懒加载。
-      lazyLoading: true
+    config: (md) => {
+      md.use(mdItAttrs);
+
+      // 自定义 Markdown-it 图片渲染规则
+      const defaultRender = md.renderer.rules.image || function (tokens, idx, options, env, self) {
+        return self.renderToken(tokens, idx, options);
+      };
+
+      md.renderer.rules.image = (tokens, idx, options, env, self) => {
+        const token = tokens[idx];
+        token.attrs = token.attrs || [];
+        // 添加 data-fancybox 属性
+        token.attrs.push(['data-fancybox', 'gallery']);
+        // 添加懒加载支持
+        token.attrs.push(['loading', 'lazy']);
+        return defaultRender(tokens, idx, options, env, self);
+      };
     }
   },
 
@@ -242,5 +258,5 @@ export default defineConfig({
     hostname: 'https://brain.linsnow.cn'
   },
 
-  lastUpdated: true
+  lastUpdated: true,
 })

@@ -229,3 +229,140 @@ public static void main(String[] args) throws InterruptedException{
 
 在守护线程中产生的新线程也是守护的。
 
+---
+
+## 反射
+
+反射就是把Java类中的各个成分映射成一个个的Java对象。即在运行状态中，对于任意一个类，都能够知道这个类所有的属性和方法，对于任意一个对象，都能调用它的任意一个方法和属性。这种动态获取信息及动态调用对象方法的功能叫Java的反射机制。
+
+简而言之，我们可以通过反射机制，获取到类的一些属性，包括类里面有哪些字段，有哪些方法，继承自哪个类，甚至还能获取到泛型！
+
+### Java类加载机制
+
+![](classloader.png)
+
+在Java程序启动时，JVM会将一部分类（class文件）先加载（并不是所有的类都会在一开始加载），通过ClassLoader将类加载，在加载过程中，会将类的信息提取出来（存放在元空间中，JDK1.8之前存放在永久代），同时也会生成一个Class对象存放在内存（堆内存），注意此Class对象只会存在一个，与加载的类唯一对应！
+
+通过反射获取**Class**:
+
+```java
+public static void main(String[] args) throws ClassNotFoundException {
+    Class<String> clazz = String.class;   //使用class关键字，通过类名获取
+    Class<?> clazz2 = Class.forName("java.lang.String");   //使用Class类静态方法forName()，通过包名.类名获取，注意返回值是Class<?>
+    Class<?> clazz3 = new String("cpdd").getClass();  //通过实例对象获取
+}
+```
+
+::: tip
+
+实际上，基本数据类型也有对应的Class对象（反射操作可能需要用到），而且我们不仅可以通过class关键字获取，其实本质上是定义在对应的包装类中的.
+
+基本类型的Class和其包装类的Class是不一样的。
+
+每个包装类中（包括Void），都有一个获取原始类型Class方法，注意，getPrimitiveClass获取的是原始类型，并不是包装类型，只是可以使用包装类来表示。
+
+:::
+
+### 创建类对象
+
+既然我们拿到了类的定义，那么是否可以通过Class对象来创建对象、调用方法、修改变量呢？当然是可以的，那我们首先来探讨一下如何创建一个类的对象：通过使用`newInstance()`方法来创建对应类型的实例，返回泛型T。当类默认的构造方法被带参构造覆盖时，会出现InstantiationException异常，因为`newInstance()`只适用于默认无参构造。当默认无参构造的权限不是`public`时，会出现IllegalAccessException异常，表示我们无权去调用默认构造方法。在JDK9之后，不再推荐使用`newInstance()`方法了。通过获取类的构造方法（构造器）来创建对象实例，会更加合理，我们可以使用`getConstructor()`方法来获取类的构造方法，同时我们需要向其中填入参数，也就是构造方法需要的类型。
+
+```java
+public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+    Class<Student> clazz = Student.class;
+    Student student = clazz.getConstructor(String.class).newInstance("what's up");
+    student.test();
+}
+
+static class Student{
+
+    private Student(String str){}
+
+    public void test(){
+        System.out.println("萨日朗");
+    }
+}
+```
+
+::: tip
+
+使用`getDeclaredConstructor()`方法可以找到类中的非public构造方法，但是在使用之前，我们需要先修改访问权限，在修改访问权限之后，就可以使用非public方法了（这意味着，反射可以无视权限修饰符访问类的内容）.
+
+将反射得到的方法调用权限修饰符：`setAccessible(true)`
+
+```java
+public static void main(String[] args) throws ReflectiveOperationException {
+    Class<?> clazz = Class.forName("com.test.Student");
+    Object instance = clazz.newInstance();   //创建出学生对象
+    Method method = clazz.getDeclaredMethod("test", String.class);   //通过方法名和形参类型获取类中的方法
+    method.setAccessible(true);
+
+    method.invoke(instance, "what's up");   //通过Method对象的invoke方法来调用方法
+}
+```
+
+
+
+:::
+
+可变参数实际上就是一个数组，因此我们可以直接使用数组的class对象表示.
+
+### 双亲委派机制流程图
+
+![](classloaderchart.png)
+
+
+
+## 注解
+
+其实我们在之前就接触到注解了，比如`@Override`表示重写父类方法（当然不加效果也是一样的，此注解在编译时会被自动丢弃）注解本质上也是一个类，只不过它的用法比较特殊。
+
+注解可以被标注在任意地方，包括方法上、类名上、参数上、成员属性上、注解定义上等，就像注释一样，它相当于我们对某样东西的一个标记。而与注释不同的是，注解可以通过反射在运行时获取，注解也可以选择是否保留到运行时。
+
+### 预设注解
+
+JDK预设了以下注解，作用于代码：
+
+- @Override- 检查（仅仅是检查，不保留到运行时）该方法是否是重写方法。如果发现其父类，或者是引用的接口中并没有该方法时，会报编译错误。
+- @Deprecated  - 标记过时方法。如果使用该方法，会报编译警告。
+- @SuppressWarnings- 指示编译器去忽略注解中声明的警告（仅仅编译器阶段，不保留到运行时）
+- @FunctionalInterface - Java 8 开始支持，标识一个匿名函数或函数式接口。
+- @SafeVarargs - Java 7 开始支持，忽略任何使用参数为泛型变量的方法或构造函数调用产生的警告。
+
+### 元注解
+
+元注解是作用于注解上的注解，用于我们编写自定义的注解：
+
+- @Retention - 标识这个注解怎么保存，是只在代码中，还是编入class文件中，或者是在运行时可以通过反射访问。
+- @Documented - 标记这些注解是否包含在用户文档中。
+- @Target - 标记这个注解应该是哪种 Java 成员。
+- @Inherited - 标记这个注解是继承于哪个注解类(默认 注解并没有继承于任何子类)
+- @Repeatable - Java 8 开始支持，标识某注解可以在同一个声明上使用多次。
+
+### 注解的使用
+
+我们还可以在注解中定义一些属性，注解的属性也叫做成员变量，注解只有成员变量，没有方法。注解的成员变量在注解的定义中以“无形参的方法”形式来声明，其方法名定义了该成员变量的名字，其返回值定义了该成员变量的类型：
+
+```java
+@Target({ElementType.METHOD, ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Test {
+    String value();
+}
+```
+
+::: tip
+
+默认只有一个属性时，我们可以将其名字设定为value，否则，我们需要在使用时手动指定注解的属性名称，使用value则无需填入,也可以使用default关键字来为这些属性指定默认值.
+
+
+
+当属性为数组，我们在使用注解传参时，如果数组里面只有一个内容，我们可以直接传入一个值，而不是创建一个数组.
+
+多个值时就使用花括号括起来 `@Test({"value1", "value2"})`   
+
+:::
+
+通过反射机制，我们可以快速获取到我们标记的注解，同时还能获取到注解中填入的值.
+
+无论是方法、类、还是字段，都可以使用`getAnnotations()`方法（还有几个同名的）来快速获取我们标记的注解.
