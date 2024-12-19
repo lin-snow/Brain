@@ -52,6 +52,7 @@ export default defineConfig({
        },
       { text: '数据库', 
         items: [
+          { text: 'SQL', link: '/database/sql'},
           { text: 'MySQL', link: '/database/mysql' },
           { text: 'Redis', link: '/database/redis' },
         ]
@@ -163,6 +164,7 @@ export default defineConfig({
 
       // 数据库侧边栏配置
       '/database/': [
+        { text: 'SQL', link: '/database/sql'},
         { text: 'MySQL', link: '/database/mysql' },
         { text: 'Redis', link: '/database/redis' },
       ],
