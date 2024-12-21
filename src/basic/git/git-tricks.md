@@ -43,5 +43,36 @@ git config --global --unset https.proxy
 
 ---
 
+## Git配置邮箱和用户名
+
+```sh
+git config --global user.email "you@example.com"   #you@example.com替换为你的邮箱并回车
+git config --global user.name "Your Name"          #Your Name替换为你的名字并回车
+```
+
+
+
+---
+
+## 生成SSH Key
+
+```shell
+ssh-keygen -t rsa
+```
+
+在终端执行此命令后一路回车即可，默认生成在c盘用户目录的.ssh文件夹下
+
+---
+
+## 无法连接到Github？
+
+在.ssh文件夹下创建`config`文件并写入
+
+```
+Host github.com
+    Hostname ssh.github.com
+    Port 443
+```
+
 
 
