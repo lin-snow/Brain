@@ -165,7 +165,13 @@ export default defineConfig({
       // 数据库侧边栏配置
       '/database/': [
         { text: 'SQL', link: '/database/sql'},
-        { text: 'MySQL', link: '/database/mysql' },
+        { text: 'MySQL', 
+          collapsed: false,
+          items: [
+            { text: 'MySQL规范', link: '/database/mysql' },
+            { text: 'MySQL语法', link: '/database/mysql/mysql' },
+          ]
+         },
         { text: 'Redis', link: '/database/redis' },
       ],
 
