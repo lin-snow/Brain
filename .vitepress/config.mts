@@ -220,6 +220,7 @@ export default defineConfig({
           items: [
             { text: 'JS的Node包管理的区别', link: '/notes/npm-difference' },
             { text: '如何理解npm产生的文件', link: '/notes/npm-files' },
+            { text: '快速安装WSL2', link: '/notes/wsl' },
           ]
          },
         {

@@ -163,3 +163,83 @@ URL,全称是UniformResourceLocator, 中文叫统一资源定位符,是互联网
 ## Socket技术
 
 我们可以通过Socket技术（它是计算机之间进行**通信**的**一种约定**或一种方式），实现两台计算机之间的通信，Socket也被翻译为`套接字`，是操作系统底层提供的一项通信技术，它支持TCP和UDP。而Java就对Socket底层支持进行了一套完整的封装，我们可以通过Java来轻松实现Socket通信。
+
+
+
+---
+
+## Lombok
+
+### 配置Lombok
+
+- 首先我们需要导入Lombok的jar依赖，和jdbc依赖是一样的，放在项目目录下直接导入就行了。可以在这里进行下载：https://projectlombok.org/download
+- 然后我们要安装一下Lombok插件，由于IDEA默认都安装了Lombok的插件，因此直接导入依赖后就可以使用了。
+- 重启IDEA
+
+Lombok是一种插件化注解API，是通过添加注解来实现的，然后在javac进行编译的时候，进行处理。
+
+### 使用Lombok
+
+我们通过实战来演示一下Lombok的实用注解：
+
+- 我们通过添加`@Getter`和`@Setter`来为当前类的所有字段生成get/set方法，他们可以添加到类或是字段上，注意静态字段不会生成，final字段无法生成set方法。
+- 我们还可以使用@Accessors来控制生成Getter和Setter的样式。
+
+我们通过添加`@ToString`来为当前类生成预设的toString方法。
+
+我们可以通过添加`@EqualsAndHashCode`来快速生成比较和哈希值方法。
+
+我们可以通过添加`@AllArgsConstructor`和`@NoArgsConstructor`来快速生成全参构造和无参构造。
+
+我们可以添加`@RequiredArgsConstructor`来快速生成参数只包含`final`或被标记为`@NonNull`的成员字段。
+
+使用`@Data`能代表`@Setter`、`@Getter`、`@RequiredArgsConstructor`、`@ToString`、`@EqualsAndHashCode`全部注解。
+
+- 一旦使用`@Data`就不建议此类有继承关系，因为`equal`方法可能不符合预期结果（尤其是仅比较子类属性）。
+
+使用`@Value`与`@Data`类似，但是并不会生成setter并且成员属性都是final的。
+
+使用`@SneakyThrows`来自动生成try-catch代码块。
+
+使用`@Cleanup`作用与局部变量，在最后自动调用其`close()`方法（可以自由更换）
+
+使用`@Builder`来快速生成建造者模式。
+
+- 通过使用`@Builder.Default`来指定默认值。
+- 通过使用`@Builder.ObtainVia`来指定默认值的获取方式。
+
+
+
+---
+
+## Mybatis
+
+MyBatis 是一款优秀的持久层框架，它支持定制化 SQL、存储过程以及高级映射。MyBatis 避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集。MyBatis 可以使用简单的 XML 或注解来配置和映射原生信息，将接口和 Java 的 POJOs(Plain Ordinary Java Object,普通的 Java对象)映射成数据库中的记录。
+
+::: tip
+
+### 什么是持久化
+
+持久化是**将程序数据在持久状态和瞬时状态间转换的机制**，将数据保存到可永久保存的存储设备中。最常见的就是将内存中的对象存储在数据库中，或者存在磁盘文件、`XML` 数据文件中等等。其中，文件 `IO` 属于持久化机制，而 `JDBC` 也是一种持久化机制
+
+:::
+
+
+
+### XML语言概述
+
+XML 被设计用来结构化、存储以及传输信息。
+
+下面实例是 Jani 写给 Tove 的便签，存储为 XML：
+
+```xml
+<note>
+<to>Tove</to>
+<from>Jani</from>
+<heading>Reminder</heading>
+<body>Don't forget me this weekend!</body>
+</note>
+```
+
+
+
