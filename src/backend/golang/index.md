@@ -1,6 +1,8 @@
 ## GoLang 基础
 
-> 教材推荐： [unknwon/the-way-to-go_ZH_CN: 《The Way to Go》中文译本，中文正式名《Go 入门指南》](https://github.com/Unknwon/the-way-to-go_ZH_CN)
+> 教材推荐： 
+> [unknwon/the-way-to-go_ZH_CN: 《The Way to Go》中文译本，中文正式名《Go 入门指南》](https://github.com/Unknwon/the-way-to-go_ZH_CN)
+> [Go 语言设计与实现 ](https://draveness.me/golang)
 
 
 
