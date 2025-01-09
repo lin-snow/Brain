@@ -80,7 +80,13 @@
 - **dwarf**：适合 32 位程序，性能高，但仅支持单线程。
 - **seh**：推荐用于 64 位程序，性能高，支持多线程。
 
+**C标准库**
 
+MSVCRT与UCRT --这是微软Windows上C标准库的两个变体。
+
+MSVCRT (Microsoft Visual C++ Runtime)默认可用于所有Microsoft版本，但由于向后兼容性问题，过去一直存在兼容性问题，无法兼容C99，因此缺少一些功能。
+
+UCRT (Universal )是Microsoft默认使用的较新版本。它应该工作并表现为代码是用MSVC编译的
 
 ---
 
