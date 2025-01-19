@@ -29,7 +29,7 @@ features:
   - icon: 🎈
     title: 项目实践
     details: 展示个人项目，涵盖设计、实现及优化的详细过程。
-    link: /notes
+    link: /others/cangqiong 
 
   - icon: 🐞
     title: 踩坑记录

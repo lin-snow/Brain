@@ -65,8 +65,19 @@ export default defineConfig({
        },
       { text: '其他',
         items: [
-          { text: 'C++', link: '/others/cpp' },
-          { text: 'Python', link: '/others/python' },
+          {
+            text: '编程语言',
+            items: [
+              { text: 'C++', link: '/others/cpp' },
+              { text: 'Python', link: '/others/python' },
+            ]
+          },
+          {
+            text: '项目实战',
+            items: [
+              { text: '苍穹外卖', link: '/others/cangqiong' },
+            ]
+          }
         ]
        },
        { text: '笔记',
@@ -209,6 +220,13 @@ export default defineConfig({
           collapsed: false, 
           items: [
             { text: 'Python', link: '/others/python' },
+          ]
+        },
+        {
+          text: '项目实战',
+          collapsed: false,
+          items: [
+            { text: '苍穹外卖', link: '/others/cangqiong' },
           ]
         }
       ],
