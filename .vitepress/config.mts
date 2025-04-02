@@ -76,6 +76,7 @@ export default defineConfig({
             text: '项目实战',
             items: [
               { text: '苍穹外卖', link: '/others/cangqiong' },
+              { text: '谷粒商城', link: '/others/gulimall'}
             ]
           }
         ]
@@ -227,6 +228,13 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: '苍穹外卖', link: '/others/cangqiong' },
+            { text: '谷粒商城', link: '/others/gulimall',
+              items: [
+                { text: '基础篇', link: '/others/gulimall/basic'},
+                { text: '高级篇', link: '/others/gulimall/advanced'},
+                { text: '运维篇', link: '/others/gulimall/o&m'}
+              ]
+            }
           ]
         }
       ],
