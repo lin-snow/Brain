@@ -70,6 +70,14 @@ sudo update-grub
 sudo reboot  
 ```
 
+6. 关闭防火墙
+```bash
+ufw disable
+```
+
 ---
 
 MySQL:
+```bash
+
+```
