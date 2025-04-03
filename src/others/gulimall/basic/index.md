@@ -1,7 +1,7 @@
 # 基础篇  
 ## 硬件准备  
 - ThinkBook 16+ R7-7845H 4050 32G  
-- MagicBook 15 2020 8G  
+- VMware 16G  
 
 ## 环境搭建
 - Windows11 on ThinkBook 16+  
